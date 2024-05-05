@@ -45,6 +45,14 @@
             justify-self: center;
             margin-bottom: 5rem;
         }
+        .endGame {
+            background-color: darkred;
+        }
+        .buttonClick {
+            opacity: 50%;
+            background-color: gray !important;
+            color: gray !important;
+        }
         main {
             display: grid;
         }
@@ -57,7 +65,6 @@
     </style>
 </head>
 <body>
-    <!-- <header>Press A Key to Start</header> -->
     <main>
         <h1 class="heading">Press A Key to Start</h1>
         <div class="grid">
@@ -70,7 +77,54 @@
     <footer></footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
+        var btnSounds = {
+            "box1": new Audio("../sounds/green.mp3"),
+            "box2": new Audio("../sounds/red.mp3"),
+            "box3": new Audio("../sounds/yellow.mp3"),
+            "box4": new Audio("../sounds/blue.mp3"),
+        }
         var gaming = false;
+        var level = 1;
+        var random = [];
+        var clickCount=0;
+        $(document).keypress(function(event){
+            if(gaming==false){
+                gaming=true;
+                level=1;
+                random=[];
+                clickCount=0;
+                $("body").removeClass("endGame");
+                $(".heading").text("Level "+level);
+                generateAnswers();
+                console.log("ARRAY: "+random + gaming)
+            }
+            
+        });
+        $(".box").on("click",function(e){
+            if(gaming==false)
+                return;
+            var thelick = $(this).text();
+            var theId = "#box"+thelick;
+            $(theId).addClass("buttonClick");
+            setTimeout(function(){
+                $(theId).removeClass("buttonClick");
+            },500);
+            if(random[clickCount] == thelick){
+                    console.log("box"+thelick);
+                    btnSounds["box"+thelick].play();
+                    clickCount++;
+                    if(clickCount==random.length) {
+                        level++;
+                        clickCount=0;
+                        setTimeout(function(){
+                            $(".heading").text("Level "+level);
+                            generateAnswers();
+                        },1000)
+                    }
+                } else {
+                    gameOver();
+                }
+        });
         function buttonClick(button){
             $(button).animate({opacity:0}, 100);
             $(button).animate({opacity:1}, 200);
@@ -91,51 +145,16 @@
             }
             getBoxAnswers();
         }
-        buttonClick("#box1");
-        buttonClick("#box2");
-        buttonClick("#box3");
-        buttonClick("#box4");
-        var level = 1;
-        var random = [];
-
-        $(document).keypress(function(event){
-            if(gaming==false){
-                gaming=true;
-                $(".heading").text("Level "+level);
-                generateAnswers();
-            }
-            if(gaming==true){
-                var clickCount = 0;
-                $(".box").on("click",function(e){
-                    var theId = $(this).attr("id");
-                    var thelick = $(this).text();
-                    buttonClick(this);
-                    
-                    if(random[clickCount] == thelick){
-                        console.log("right" + random[clickCount] + " " + thelick);
-                        clickCount++;
-                        if(clickCount==random.length) {
-                            level++;
-                            clickCount=0;
-                            setTimeout(function(){
-                                $(".heading").text("Level "+level);
-                                generateAnswers();
-                            },1000)
-                        }
-                    } else {
-                        setTimeout(function(){
-                            gaming=false;
-                            $(".heading").text("You Lose! Refresh to restart.");
-                            $("body").css("backgroundColor","darkred");
-                            $("body").css("color","white");
-                        },100);
-                    }
-
-                });
-            }
-        });
-
-
+        function gameOver(){
+            setTimeout(function(){
+                var endSound = new Audio("../sounds/wrong.mp3");
+                endSound.play();
+                gaming=false;
+                $(".heading").text("You Lose! Press any key to restart.");
+                $("body").addClass("endGame");
+                $("body").css("color","white");
+            },100);
+        }
     </script>
 </body>
 </html>
