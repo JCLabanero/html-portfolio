@@ -15,6 +15,7 @@ function authPassword(req,res,next) {
         isAuth = true;
     next();
 }
+
 app.use(authPassword);
 
 app.get("/",(req,res)=> {
