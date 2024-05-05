@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            border-radius: 10%;
+            height: 10rem;
+            width: 10rem;
+            border: 5px solid black;
+        }
+        .grid {
+            display: grid;
+            height: 10rem;
+            width: 20rem;
+            grid-template: 1fr 1fr / 1fr 1fr;
+            gap: 2rem;
+            margin-left: auto;
+            margin-right:auto;
+        }
+        #box1 {
+            background-color: green;
+        }
+        #box2 {
+            background-color: red;
+        }
+        #box3 {
+            background-color: yellow;
+        }
+        #box4 {
+            background-color: blue;
+        }
+        header {
+            font-size: 40px;
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+    </style>
+</head>
+<body>
+    <header>Press A Key to Start</header>
+    <main class="grid">
+        <div class="box" id="box1">1</div>
+        <div class="box" id="box2">2</div>
+        <div class="box" id="box3">3</div>
+        <div class="box" id="box4">4</div>
+    </main>
+    <footer></footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        var gaming = false;
+        function buttonClick(button){
+            $(button).animate({opacity:0}, 100);
+            $(button).animate({opacity:1}, 200);
+            $(button).click(()=>{
+            });
+        }
+        function getRandom(){
+            return Math.ceil(Math.random() * 4);
+        }
+        buttonClick("#box1");
+        buttonClick("#box2");
+        buttonClick("#box3");
+        buttonClick("#box4");
+        var level = 1;
+        var random = [];
+        var user = [];
+        var buttons = {
+            "box1": 1,
+            "box2": 2,
+            "box3": 3,
+            "box4": 4,
+        }
+
+        $(document).keypress(function(event){
+            
+            for (let i = 0; i < level; i++) {
+                random.push(getRandom());
+                var theId = "#box"+getRandom();
+                buttonClick(theId)
+                console.log(random[i] + " "+theId);
+            }
+            if(gaming==false){
+                gaming=true;
+                $("header").text("Level "+1);
+            }
+            if(gaming==true){
+                // event.attr("#id") == random[0];
+                var id = $(this).attr("id");
+                user.push(id);
+            }
+
+        });
+        $(".box").on("click",()=>{
+            $(this).hide();
+            buttonClick($(this).attr("id"));
+        });
+
+    </script>
+</body>
+</html>
