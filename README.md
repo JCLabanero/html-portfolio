@@ -44,6 +44,14 @@
         npm i -g nodemon
     ```
 
+    ```cmd
+        nodemon file.extension
+    ```
+
+    ```cmd
+        Set-ExecutionPolicy remotesigned -scope process
+    ```
+
     - [HTTP Status Codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
 
     - A tool for testing or debugging server [Postman](https://www.postman.com/downloads/)
@@ -54,4 +62,4 @@
         npm install
     ```
 
-    - as;faskdf
+    - body-parser morgan (middlewares) (logging, error, pre-processing, auth)
