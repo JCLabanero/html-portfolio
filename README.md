@@ -24,7 +24,7 @@
         - in package json "type": "module"
     - Using ExpressJS to make server [ExpressJS](https://expressjs.com/)
 
-    ```
+    ```cmd
         npm init -y
     ```
 
@@ -32,8 +32,26 @@
 
     - to see which ports are open
 
-    ```
+    ```cmd
         netstat -ano | findstr "LISTENING"
     ```
 
     - How to properly close a port [Blog Post](https://dev.to/sylwiavargas/how-to-properly-close-a-port-2p36)
+
+    - Using nodemon from npm to run updating port (-g for global)
+
+    ```cmd
+        npm i -g nodemon
+    ```
+
+    - [HTTP Status Codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
+
+    - A tool for testing or debugging server [Postman](https://www.postman.com/downloads/)
+
+    - Using npm install to install all dependencies that are in package.json
+
+    ```cmd
+        npm install
+    ```
+
+    - as;faskdf
