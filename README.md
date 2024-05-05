@@ -63,3 +63,17 @@
     ```
 
     - body-parser morgan (middlewares) (logging, error, pre-processing, auth)
+
+3. EJS
+    - EJS is a view
+    - Install EJS from extensions
+
+    ![EJS](images/ssejs.png)
+
+    ```ejs
+        <%- include("footer.ejs")%>
+    ```
+
+    ```ejs
+        res.render("name.ejs",{name:"JC"})
+    ```
