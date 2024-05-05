@@ -7,5 +7,4 @@ open ~a /Applications/Visual\Studio\Code
 rm file.extension //remove file
 rm * //remove everything
 rm -r directoryName //remove a directory
--f force
 pwd // print working directory
