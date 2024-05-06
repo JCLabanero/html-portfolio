@@ -80,7 +80,13 @@ npm install
 res.render("name.ejs",{name:"JC"})
 ```
 
-### General
+### axios
+
+- Simplify http request or api request
+
+![Axios](images/ssaxios.png)
+
+### General Sources
 
 [See Global Cable Connections](https://www.submarinecablemap.com/)
 
