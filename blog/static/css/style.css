@@ -2,3 +2,6 @@
     display: flex;
     justify-content: end;
 }
+.title, .subtitle, .by {
+    display: flex;
+}

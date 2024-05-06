@@ -1,17 +1,26 @@
 <%- include("partials/head.ejs") %>
-
-<main>
-    <header>
-        <h1>
-            UBlog
-        </h1>
-    </header>
+<header class="container mb-3">
+    <h1>
+        UBlog
+    </h1>
+    <hr>
+</header>
+<main class="container">
+    <div class="p-4 p-md-5 rounded text-body-emphasis bg-body-secondary">
+        <div class="col-lg-6 px-0">
+            <h1 class="display-4 fst-italic">Welcome to my simple blog website.</h1>
+            <div class="lead my-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, illum.</div>
+            <div class="lead mb-0">Created by John Carlo Labanero🫂</div>
+        </div>
+    </div>
     <% if (locals.posts) { %>
         <% for( let index = 0; index < posts.length; index++ ) { %>
             <form action="/post" method="post" class="post">
                 <hr>
                 <h1 class="title"><%= posts[index].title %></h1>
-                <h6 class="subtitle"><p class="date"><%= posts[index].date %></p> by <p class="name"><%= posts[index].name %></p></h6>
+                <h6 class="subtitle">
+                    <p class="date"><%= posts[index].date %> by <em class="name"><%= posts[index].name %></em></p>
+                </h6>
                 <p class="content"><%= posts[index].content %></p>
                 <input type="submit" name="mode" value="Update" class="btn btn-primary">
                 <input type="submit" name="mode" value="Delete" class="btn btn-danger">
