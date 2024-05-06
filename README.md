@@ -25,7 +25,7 @@
     - Using ExpressJS to make server [ExpressJS](https://expressjs.com/)
 
     ```cmd
-        npm init -y
+    npm init -y
     ```
 
     - In JS, string interpolation only works with backtics `${variableName}`
@@ -33,7 +33,7 @@
     - to see which ports are open
 
     ```cmd
-        netstat -ano | findstr "LISTENING"
+    netstat -ano | findstr "LISTENING"
     ```
 
     - How to properly close a port [Blog Post](https://dev.to/sylwiavargas/how-to-properly-close-a-port-2p36)
@@ -41,15 +41,15 @@
     - Using nodemon from npm to run updating port (-g for global)
 
     ```cmd
-        npm i -g nodemon
+    npm i -g nodemon
     ```
 
     ```cmd
-        nodemon file.extension
+    nodemon file.extension
     ```
 
     ```cmd
-        Set-ExecutionPolicy remotesigned -scope process
+    Set-ExecutionPolicy remotesigned -scope process
     ```
 
     - [HTTP Status Codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
@@ -59,7 +59,7 @@
     - Using npm install to install all dependencies that are in package.json
 
     ```cmd
-        npm install
+    npm install
     ```
 
     - body-parser morgan (middlewares) (logging, error, pre-processing, auth)
@@ -71,9 +71,9 @@
     ![EJS](images/ssejs.png)
 
     ```ejs
-        <%- include("footer.ejs")%>
+    <%- include("footer.ejs")%>
     ```
 
     ```ejs
-        res.render("name.ejs",{name:"JC"})
+    res.render("name.ejs",{name:"JC"})
     ```
