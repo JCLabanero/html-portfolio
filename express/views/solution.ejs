@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Taco GO</h1>
+    <form action="/recipe" method="post">
+        <button type="submit" name="choice" value="chicken">🍗</button>
+        <button type="submit" name="choice" value="beef">🥩</button>
+        <button type="submit" name="choice" value="fish">🐟</button>
+    </form>
+    <% if (locals.recipe) { %>
+     <h2>
+        <%= recipe.name %>
+     </h2>
+     <h3>Ingredients: </h3>
+     <ul>
+        <li><%= recipe.ingredients.protein.name %>, <%= recipe.ingredients.protein.preparation %></li>
+        <li><%= recipe.ingredients.salsa.name %></li>
+        <% recipe.ingredients.toppings.forEach(element => { %>
+         <li>
+            <%= element.quantity %> of <%= element.name %>
+         </li>
+        <% }) %>
+     </ul>
+     <% } else { %>
+      <h2>Pick your favourite taco ingredient☝️</h2>
+    <% } %>
+</body>
+</html>

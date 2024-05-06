@@ -92,6 +92,8 @@ res.render("name.ejs",{name:"JC"})
 
 [Free Use Illustrations ❤️](https://undraw.co/)
 
+[JSON Structure Viewer](https://jsonviewer.stack.hu/)
+
 #### UI Specific
 
 [Lorem for Pictures ❤️](https://picsum.photos/)
