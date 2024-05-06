@@ -1,0 +1,27 @@
+<%- include("partials/head.ejs") %>
+
+<main class="container">
+    <h1>
+    <% if (locals.mode.toLowerCase()=="create") { %>
+        <%= locals.mode %> a post
+        <% } else { %>
+            <%= locals.mode %> the post
+        <% } %>
+    </h1>
+    <form action="/<%= locals.mode %>" method="post" class="">
+        <input type="text" name="index" value="<%= index %>" hidden>
+        <div class="row my-3 form-floating">
+            <input type="text"  class="form-control" name="title" id="title<%=  %>" placeholder="title">
+            <label for="title">Title</label>
+        </div>
+        <div class="row mb-3 form-floating">
+            <textarea class="form-control" name="content" id="content" style="height: 100px;" placeholder="Content"></textarea>
+            <label for="content">Type blog here</label>
+        </div>
+        <div class="row mb-3">
+            <input type="submit" value="Confirm" class="btn btn-primary">
+        </div>
+    </form>
+</main>
+
+<%- include("partials/foot.ejs") %>
