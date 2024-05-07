@@ -83,8 +83,18 @@ res.render("name.ejs",{name:"JC"})
 ### axios
 
 - Simplify http request or api request
+- [Axios Documentation](https://axios-http.com/docs/example)
+- [How to send basic auth with axios](https://stackoverflow.com/questions/44072750/how-to-send-basic-auth-with-axios)
+- [Public API Lists](https://github.com/public-api-lists/public-api-lists)
 
 ![Axios](images/ssaxios.png)
+
+- What makes an API restful?
+  1. "uses standard http methods namely get, post, put, patch, delete"
+  2. "use or return standard format (json/xml)"
+  3. "api and client are separate from each other"
+  4. "stateless? communicating independently every client and their requests"
+  5. "resource-base unique names uniform resource identifier > ur locator"
 
 ### General Sources
 
