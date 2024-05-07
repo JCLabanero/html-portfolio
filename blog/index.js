@@ -35,17 +35,19 @@ app.post("/create",(req,res) => {
     const today = new Date();
     const month = today.toLocaleString('default',{month:"long"});
     const date = month + " " + today.getDay() +", "+ today.getFullYear();
-    var title = req.body["title"], content = req.body["content"];
-    postsVar.push(postBlog(title,content,date));
+    var title = req.body["title"], content = req.body["content"], name=req.body["name"];
+    postsVar.push(postBlog(title,content,date,name));
     res.redirect("/");
 });
 
 app.post("/update",(req,res) => {
-    var index=Number(req.body["index"]);
-    var title=req.body.title;
-    var content = req.body.content;
-    const date = postsVar[index].date;
-    const name = postsVar[index].name;
+    const index=Number(req.body["index"]);
+    const today = new Date();
+    const orig = postsVar[index];
+    const title=req.body.title || orig.name;
+    const content = req.body.content || orig.content;
+    const date = today.toLocaleString('default',{month:"long"}) + " " + today.getDay() +", "+ today.getFullYear() || orig.date;
+    const name = req.body.name || orig.name;
     postsVar[index] = postBlogUpdate(title,content,date,name);
     res.redirect("/");
 });
@@ -58,8 +60,8 @@ app.listen(port,() => {
     console.log(`Listening from port ${port}`);
 });
 
-function postBlog(title,content,date){
-    return { title: title, content: content, date: date, name: "Carlo"};
+function postBlog(title,content,date,name){
+    return { title: title, content: content, date: date, name: name };
 }
 function postBlogUpdate(title,content,date,name){
     return { title: title, content: content, date: date, name: name };
