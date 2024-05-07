@@ -5,6 +5,7 @@
 ### Terminal Commands
 
 [More Commands Here]("https://gist.github.com/bradtraversy/cc180de0edee05075a6139e42d5f28ce")
+
 - list the file ```ls```
 - make directory ```mkdir```
 - change directory ```cd```
@@ -23,6 +24,9 @@
 - Node Package Managers [npm](https://www.npmjs.com/)
 - V12 node enable Ecma Script M (ESM)
   - in package json "type": "module"
+
+### Expess
+
 - Using ExpressJS to make server [ExpressJS](https://expressjs.com/)
 
 ```cmd
@@ -65,6 +69,18 @@ npm install
 
 - body-parser morgan (middlewares) (logging, error, pre-processing, auth)
 
+- To get a parameter in end point url
+
+```js
+const variable = parseInt(req.params.id);
+```
+
+- To get an array still with parameter end point
+
+```js
+const variable = req.query.name;
+```
+
 ### EJS
 
 - EJS is a view
@@ -76,7 +92,7 @@ npm install
 <%- include("footer.ejs")%>
 ```
 
-```ejs
+```js
 res.render("name.ejs",{name:"JC"})
 ```
 
