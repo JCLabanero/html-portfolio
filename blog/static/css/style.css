@@ -1,6 +1,7 @@
-.create-parent {
+#create-parent {
     display: flex;
     justify-content: end;
+    margin-bottom: 2rem;
 }
 .title, .subtitle, .by {
     display: flex;

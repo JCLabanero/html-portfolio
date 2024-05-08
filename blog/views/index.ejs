@@ -8,12 +8,20 @@
 <main class="container">
     <div class="p-4 p-md-5 rounded text-body-emphasis bg-body-secondary">
         <div class="col-lg-6 px-0">
-            <h1 class="display-4 fst-italic">Welcome to my simple blog website.</h1>
-            <div class="lead my-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, illum.</div>
-            <div class="lead mb-0">Created by John Carlo Labanero🫂</div>
+            <h1 class="display-4 fst-italic mb-3">Welcome to my simple blog website.</h1>
+            <div class="lead mb-3">Created by John Carlo Labanero🫂</div>
+            <div class="col-10 col-sm-8 col-lg-6">
+                <div class="create-parent">
+                    <form action="/post" method="post" class="form-floating">
+                        <input type="text" name="mode" value="Create" hidden>
+                        <input type="submit" value="Create new Post" class="btn btn-primary">
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
-    <% if (locals.posts) { %>
+    <% if (locals.response.data) { %>
+        <% posts = response.data %>
         <% for( let index = 0; index < posts.length; index++ ) { %>
             <form action="/post" method="post" class="post">
                 <hr>
@@ -28,7 +36,8 @@
             </form>
         <% } %>
     <% } %>
-    <div class="create-parent">
+    <hr>
+    <div class="create-parent" id="create-parent">
         <form action="/post" method="post" class="form-floating">
             <input type="text" name="mode" value="Create" hidden>
             <input type="submit" value="Create new Post" class="btn btn-primary">

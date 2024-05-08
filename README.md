@@ -112,6 +112,14 @@ res.render("name.ejs",{name:"JC"})
   4. "stateless? communicating independently every client and their requests"
   5. "resource-base unique names uniform resource identifier > ur locator"
 
+### SQL
+
+- [Test SQL Commands](https://sqliteonline.com/)
+
+- [SQL](https://www.w3schools.com/sql/default.asp)
+
+### POSTGRES
+
 ### General Sources
 
 [See Global Cable Connections](https://www.submarinecablemap.com/)
