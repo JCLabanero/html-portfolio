@@ -115,11 +115,11 @@ res.render("name.ejs",{name:"JC"})
 ### SQL
 
 - [Test SQL Commands](https://sqliteonline.com/)
-
-- [SQL](https://www.w3schools.com/sql/default.asp)
+- [SQL Commands List](https://www.w3schools.com/sql/default.asp)
 
 ### POSTGRES
 
+- [Postgres Commands List](https://www.w3schools.com/postgresql/index.php)
 - [Postgress DB](https://www.npmjs.com/package/pg)
 
 ### General Sources
