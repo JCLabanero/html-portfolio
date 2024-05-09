@@ -118,3 +118,42 @@ SELECT *
 FROM visited_countries
 JOIN users
 ON users.id = user_id;
+
+
+-- ALTER
+ALTER TABLE <TABLE TO ALTER>
+  ADD email TEXT
+
+ALTER TABLE visited_countries
+  ADD UNIQUE(country_code, user_id)
+
+-- UPDATE
+
+UPDATE <TABLE TO UPDATE>
+SET <COLUMN TO UPDATE> = value, ...
+WHERE <SOME CONDITION>;
+
+update users
+set name = "newName"
+where id = 1
+
+-- ORDER
+
+SELECT *
+FROM <TABLE>
+ORDER BY <SOME CONDITION>;
+
+SELECT *
+FROM users
+ORDER BY id ASC; DESC
+
+-- DELETE
+DELETE FROM <TABLE TO DELETE>
+WHERE <SOME CONDITION>
+
+CREATE TABLE items (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(100) NOT NULL
+);
+
+INSERT INTO items (title) VALUES ('Buy milk'), ('Finish homework');
