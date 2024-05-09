@@ -129,33 +129,20 @@ res.render("name.ejs",{name:"JC"})
 ### General Sources
 
 [See Global Cable Connections](https://www.submarinecablemap.com/)
-
 [Principles of Writing JS](https://github.com/rwaldron/idiomatic.js)
-
 [Editor Config for Colab Work](https://editorconfig.org/)
-
 [Free Use Images](https://unsplash.com/)
-
 [Free Use Illustrations ❤️](https://undraw.co/)
-
 [JSON Structure Viewer](https://jsonviewer.stack.hu/)
 
 #### UI Specific
 
 [Lorem for Pictures ❤️](https://picsum.photos/)
-
 [UIverse Code Snippets](https://uiverse.io/)
-
 [Codepen Code Snippets](https://codepen.io/)
-
 [Bootstrap Templates](https://mdbootstrap.com/)
-
 [Generate Patters from CSS](https://pattern.monster/)
-
 [UI Somewhat Debugger](https://chromewebstore.google.com/detail/pesticide-for-chrome/bakpbgckdnepkmkeaiomhmfcnejndkbi?pli=1&authuser=0)
-
 [CSS Flex](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) and [CSS Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
-
 [Font Size Calculator](https://typescale.com/)
-
 [Font Archetypes](https://archetypeapp.com/#)
