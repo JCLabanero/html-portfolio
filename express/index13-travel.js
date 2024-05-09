@@ -1,6 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import pg from "pg"
+import { titleCase } from "title-case";
 
 const app = express();
 const port = 3000;
@@ -29,25 +30,84 @@ async function getCountries(){
   }
 }
 
-async function addCountry(country){
-  await db.query("INSERT INTO visited_countries(country_code) VALUES($1)", [country.toUpperCase()]);
-}
+// async function addCountry(country_code){
+//   try {
+//     await db.query("INSERT INTO visited_countries(country_code) VALUES($1)", [country_code]);
+//   } catch (error) {
+//     console.error("Error inserting data:",error);
+//   }
+// }
+
+// async function getCodeFromName(country_name){
+//   try {
+//     const query = await db.query("SELECT country_code FROM countries WHERE country_name=$1",[titleCase(country_name)]);
+//     if(query.rows.length == 0)
+//       return null;
+//     const to_return = query.rows[0].country_code.toUpperCase()
+//     return to_return;
+//   } catch (error) {
+//     console.error("Error requesting query:",error);
+//     return null;
+//   }
+// }
+
+// async function getCountryThatHasAName(country_name){
+//   try {
+//     const query = await db.query("SELECT country_name FROM countries LIKE %$1%",[titleCase(country_name)]);
+//     if(query.rows.length == 0)
+//       return null;
+//     return query.rows[0].country_code.toUpperCase();
+//   } catch (error) {
+//     console.error("Error requesting query:",error);
+//     return null;
+//   }
+// }
 
 app.get("/", async (req, res) => {
-  //Write your code here.
   const countries = await getCountries();
   console.log(countries);
   res.render("travel.ejs", {total:countries.length, countries:countries});
 });
 
 app.post("/add", async (req,res) => {
-  const countryToAdd = req.body.country;
-  const listOfCountries = await getCountries();
-  const found = listOfCountries.includes(countryToAdd.toUpperCase());
-  if(found==false && countryToAdd.trim()!="")
-    await addCountry(countryToAdd);
-  console.log(`Trying to add ${countryToAdd.toUpperCase()}, in existing countries ${found}`);
-  res.redirect("back");
+  const countryToAdd = titleCase(req.body.country).trim();
+  console.log(`${countryToAdd}`);
+  try { 
+    // const query = await db.query("SELECT country_code FROM countries WHERE country_name=$1",
+    const query = await db.query("SELECT country_code FROM countries WHERE country_name ILIKE $1",
+    [`%${countryToAdd}%`]);
+    if(query.rowCount == 0)
+      throw new Error("No matching country found");
+    const country_code = query.rows[0].country_code.toUpperCase();
+
+    try {
+      const query_find = await db.query("SELECT country_code FROM visited_countries WHERE country_code=$1",[country_code]);
+      console.log(query_find.rowCount)
+      if(query_find.rowCount!=0)
+        throw new Error("Country have already been added");
+      
+      await db.query("INSERT INTO visited_countries(country_code) VALUES($1)",[country_code]);
+      res.redirect("/");
+    } catch (error) {
+      console.log("Query breaks",error)
+      const allCountries = await getCountries();
+      res.render("travel.ejs", {
+        total:allCountries.length, 
+        countries:allCountries,
+        error: "Country have already been added."
+      });
+    }
+
+    console.log(`Code: ${country_code}`);
+  } catch (error) {
+    console.log("Query breaks",error)
+    const allCountries = await getCountries();
+    res.render("travel.ejs", {
+      total:allCountries.length, 
+      countries:allCountries,
+      error: "Country code couldn't find."
+    });
+  }
 });
 
 app.listen(port, () => {

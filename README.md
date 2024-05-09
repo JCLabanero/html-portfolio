@@ -122,6 +122,10 @@ res.render("name.ejs",{name:"JC"})
 - [Postgres Commands List](https://www.w3schools.com/postgresql/index.php)
 - [Postgress DB](https://www.npmjs.com/package/pg)
 
+### MINE
+
+- [Title Case NPM](https://www.npmjs.com/package/title-case)
+
 ### General Sources
 
 [See Global Cable Connections](https://www.submarinecablemap.com/)
