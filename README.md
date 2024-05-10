@@ -133,6 +133,11 @@ res.render("name.ejs",{name:"JC"})
 
 ### General Sources
 
+[CSS Properties](https://www.w3schools.com/cssref/index.php)
+[Standard Attr](https://www.w3schools.com/tags/ref_standardattributes.asp)
+[Expression VS Statement Video](https://www.youtube.com/watch?v=WVyCrI1cHi8&list=PL-xu4i_QDSxcoDNeh8rx5-pHCCTOg0XsI)
+[Babel: JS compiler](https://babeljs.io/)
+[Browser Based Dev Environment](https://codesandbox.io/)
 [Hacker Typer](https://hackertyper.net/)
 [Password Strength Checker](http://password-checker.online-domain-tools.com/)
 [haveibeenpwned](https://haveibeenpwned.com/)
