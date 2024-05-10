@@ -120,7 +120,12 @@ res.render("name.ejs",{name:"JC"})
 ### POSTGRES
 
 - [Postgres Commands List](https://www.w3schools.com/postgresql/index.php)
-- [Postgress DB](https://www.npmjs.com/package/pg)
+- [NPM Postgress DB](https://www.npmjs.com/package/pg)
+
+### HASHING
+
+- [NPM Bcrypt](https://www.npmjs.com/package/bcrypt)
+- [EZ Authentication Strats](https://www.passportjs.org/)
 
 ### MINE
 
@@ -128,6 +133,12 @@ res.render("name.ejs",{name:"JC"})
 
 ### General Sources
 
+[Hacker Typer](https://hackertyper.net/)
+[Password Strength Checker](http://password-checker.online-domain-tools.com/)
+[haveibeenpwned](https://haveibeenpwned.com/)
+[Hackering](https://plaintextoffenders.com/)
+[Text Encrypt/Decrypt](https://cryptii.com/)
+[Text Encrypt/Decrypt 2](https://encode-decode.com/)
 [See Global Cable Connections](https://www.submarinecablemap.com/)
 [Principles of Writing JS](https://github.com/rwaldron/idiomatic.js)
 [Editor Config for Colab Work](https://editorconfig.org/)
