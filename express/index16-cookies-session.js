@@ -48,10 +48,26 @@ app.get("/", (req, res) => {
   res.render("cookies-session-home.ejs");
 });
 
-app.get("/secrets", (req, res) => {
+app.get("/submit", (req, res) => {
   console.log(req.user);
   if (req.isAuthenticated()) {
-    res.render("cookies-session-secrets.ejs");
+    res.render("cookies-session-submit.ejs");
+  } else res.redirect("/login");
+});
+
+app.get("/secrets", async (req, res) => {
+  console.log(req.user);
+  if (req.isAuthenticated()) {
+    const result = await db.query("SELECT secret from users WHERE email=$1", [
+      req.user.email,
+    ]);
+    let secret = "Jack Bauer is my hero";
+    if (result.rowCount > 0 && result.rows[0].secret != null) {
+      secret = result.rows[0].secret;
+    }
+    res.render("cookies-session-secrets.ejs", {
+      secret: secret,
+    });
   } else res.redirect("/login");
 });
 
@@ -81,6 +97,24 @@ app.get("/login", async (req, res) => {
   res.render("cookies-session-login.ejs");
 });
 
+app.get("/register", (req, res) => {
+  res.render("cookies-session-register.ejs");
+});
+
+app.post("/submit", async (req, res) => {
+  console.log(`OUTPUT: ${req.body.secret}, ${req.user.email}`);
+  try {
+    const secret = await db.query("UPDATE users SET secret=$1 WHERE email=$2", [
+      req.body.secret,
+      req.user.email,
+    ]);
+    res.redirect("/secrets");
+  } catch (error) {
+    console.log(err);
+    res.redirect("/secrets");
+  }
+});
+
 app.post(
   "/login",
   passport.authenticate("local", {
@@ -88,10 +122,6 @@ app.post(
     failureRedirect: "/login",
   })
 );
-
-app.get("/register", (req, res) => {
-  res.render("cookies-session-register.ejs");
-});
 
 app.post("/register", async (req, res) => {
   const email = req.body.username;
