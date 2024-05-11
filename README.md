@@ -127,12 +127,38 @@ res.render("name.ejs",{name:"JC"})
 - [NPM Bcrypt](https://www.npmjs.com/package/bcrypt)
 - [EZ Authentication Strats](https://www.passportjs.org/)
 
+### REACT
+
+- ALWAYS USE RETURN CAUSE REACT BROKE ALOT BECAUSE OF THIS
+- Prevent form to refresh
+
+```js
+  event.preventDefault();
+```
+
 ### MINE
 
 - [Title Case NPM](https://www.npmjs.com/package/title-case)
 
 ### General Sources
 
+[Appbrewery Course](https://www.appbrewery.co/p/web-development-course-resources/)
+[Material UI](https://mui.com/material-ui/)
+[Spread Syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+[Stack Setting Ojb Value](https://stackoverflow.com/questions/11508463/javascript-set-object-key-by-variable?noredirect=1&lq=1)
+[ReactJS Hooks](https://legacy.reactjs.org/docs/hooks-intro.html)
+[Controlled Components](https://legacy.reactjs.org/docs/forms.html#controlled-components)
+[ES6 Destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+[FlatUIColor](https://flatuicolors.com/)
+[React Hooks Docu](https://legacy.reactjs.org/docs/hooks-reference.html#usestate)
+[Single Responsibility Principle](https://en.wikipedia.org/wiki/Single-responsibility_principle)
+[Array Mapping](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
+[Emoji Meaning](https://www.emojimeanings.net/list-smileys-people-whatsapp)
+[Desc list element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl)
+[React Dev Tools - Firefox](https://addons.mozilla.org/en-GB/firefox/addon/react-devtools/)
+[React Dev Tools - Chrome](https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
+[Stack Node.js vs ES6 import/export](https://stackoverflow.com/questions/31354559/using-node-js-require-vs-es6-import-export)
+[Airbnb React/JSX Style Guide](https://github.com/airbnb/javascript/tree/master/react)
 [CSS Properties](https://www.w3schools.com/cssref/index.php)
 [Standard Attr](https://www.w3schools.com/tags/ref_standardattributes.asp)
 [Expression VS Statement Video](https://www.youtube.com/watch?v=WVyCrI1cHi8&list=PL-xu4i_QDSxcoDNeh8rx5-pHCCTOg0XsI)
